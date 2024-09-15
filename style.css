@@ -1,0 +1,49 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color:  rgb(95, 107, 110);
+    overflow-y:hidden;
+}
+
+#board{
+    /* background-color: skyblue; */
+    background-image: url("./flappybirdbg.png");
+}
+
+/* Portrait mode for mobile devices only */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    canvas#board {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+    
+    /* Hide other elements on mobile screens */
+    body > *:not(#board) {
+      display: none;
+    }
+}
+
+/* Landscape mode for mobile devices only */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    canvas#board {
+      width: 100vw;
+      height: 75vh; /* adjust the height to fit the landscape mode */
+      display: block;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+    
+    /* Hide other elements on mobile screens */
+    body > *:not(#board) {
+      display: none;
+    }
+}
