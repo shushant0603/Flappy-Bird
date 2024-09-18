@@ -145,37 +145,41 @@ function placePipes(){
 }
 
 function moveBird(e){
-   
-     if (e.type === 'click') {
-        velocityY = -6;
-        // reset game
+    if (e.type === 'click') {
         if (gameover) {
-            bird.y = birdY;
-            pipeArray = [];
-            score = 0;
-            gameover = false;
+            setTimeout(function() {
+                bird.y = birdY;
+                pipeArray = [];
+                score = 0;
+                gameover = false;
+            }, 2000); // wait 2 seconds before resetting the game
+        } else {
+            velocityY = -6;
         }
     } else if(e.type==='keydown'){
         if(e.code =="space" || e.code =="ArrowUp" ||e.code =="keyX"){
-            //jump
-            velocityY=-6;
-            //reset game
-            if(gameover){
-             bird.y =birdY;
-             pipeArray=[];
-             score=0;
-             gameover=false;
+            if (gameover) {
+                setTimeout(function() {
+                    bird.y = birdY;
+                    pipeArray = [];
+                    score = 0;
+                    gameover = false;
+                }, 2000); // wait 2 seconds before resetting the game
+            } else {
+                velocityY=-6;
             }
-         }
+        }
     }
     else if(e.type==='touchstart'){
-        velocityY = -6;
-        // reset game
         if (gameover) {
-          bird.y = birdY;
-          pipeArray = [];
-          score = 0;
-          gameover = false;
+            setTimeout(function() {
+                bird.y = birdY;
+                pipeArray = [];
+                score = 0;
+                gameover = false;
+            }, 2000); // wait 2 seconds before resetting the game
+        } else {
+            velocityY = -6;
         }
     }
 }
